@@ -5,6 +5,7 @@
 //FIXME: funcion que observe si hay guardad0 algo en local storag y en base a eso defina el monto inicial de la app => 0 por default
 //
 console.group("storage")
+
 function chequeoDato(){
     let dato = localStorage.getItem("ingresoKEY")
     if(dato != undefined){
@@ -22,7 +23,9 @@ console.groupEnd();
 
 
 //FIXME: funcion depositar y mostar en pantalla
+
 console.group("deposito")
+
 const depositos = [];
 
 function recuperarDato(){
@@ -41,14 +44,13 @@ function recuperarDato(){
         // ingreso datos al local storage
         localStorage.setItem("ingresoKEY", ingresoDinero)
         
-        console.group(`Fecha y Hora`)
-        
+// FECHAS!
+
         const fechaUnix = Date.now()
         console.log(fechaUnix)
         const fecha = Date()
         console.log(fecha)
         
-        console.groupEnd();
         // TODO: """ let acumulado = depositos + ingresoDinero
         // console.log(acumulado)
     }
