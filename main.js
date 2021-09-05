@@ -11,10 +11,6 @@ function chequeoDato(){
         document.getElementById("saldoActual").innerHTML = `<div> 
         <h2 style="color:green;">$ ${dato}</h2>
         </div>`
-    }else{
-        document.getElementById("saldoActual").innerHTML = `<div> 
-        <h2 style="color:red;">$ 0</h2>
-        </div>`
     }
     console.log(dato)
     return dato
@@ -34,10 +30,6 @@ function recuperarDato(){
     
     if (ingresoDinero < 1 || ingresoDinero > 10000) {
         console.log(" saldo incorrecto")
-        
-        document.getElementById("saldoActual").innerHTML = `<div> 
-        <h2 style="color:red;">$ 0</h2>
-        </div>`
     } else {
         document.getElementById("saldoActual").innerHTML = `<div> 
         <h2 style="color:green;">$ ${ingresoDinero}</h2>
