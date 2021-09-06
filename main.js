@@ -61,6 +61,8 @@ function deposito(){
     }
     return ingresoDinero;
 }
+deposito(chequeoDato());
+
 console.groupEnd()
 
 //FIXME:  recuperar dato!
@@ -88,4 +90,3 @@ console.groupEnd()
 //
 
 //TODO: funcion guarar usario
-//
