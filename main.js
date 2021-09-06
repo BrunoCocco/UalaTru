@@ -34,13 +34,13 @@ function deposito(){
     let ingresoDinero = document.getElementById("depositar").value
     
     if (ingresoDinero < 1 || ingresoDinero > 10000) {
-        console.log(" saldo incorrecto")
+
     } else {
         document.getElementById("saldoActual").innerHTML = `<div> 
         <h2 style="color:green;">$ ${ingresoDinero}</h2>
         </div>`
         
-        arrayDepositos.push(ingresoDinero)
+        arrayDepositos.push(parseFloat(ingresoDinero))
         
         document.getElementById("print").innerHTML = `Depositaste ${ingresoDinero}`
         
@@ -62,7 +62,6 @@ function deposito(){
     return ingresoDinero;
 }
 deposito(chequeoDato());
-
 console.groupEnd()
 
 //FIXME:  recuperar dato!
