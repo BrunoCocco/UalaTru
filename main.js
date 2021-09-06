@@ -20,7 +20,7 @@ chequeoDato()
 
 
 
-console.groupEnd();
+console.groupEnd()
 
 
 
@@ -43,23 +43,25 @@ function deposito(){
         arrayDepositos.push(ingresoDinero)
         
         document.getElementById("print").innerHTML = `Depositaste ${ingresoDinero}`
+        
         // ingreso datos al local storage
         localStorage.setItem("ingresoKEY", ingresoDinero)
         
-// FECHAS!
+        console.log(arrayDepositos)
+        
+        // FECHAS!
+        console.group("fecha y hora")
 
         const fechaUnix = Date.now()
         console.log(fechaUnix)
         const fecha = Date()
         console.log(fecha)
-        
+
+        console.groupEnd()
     }
-
-    console.log(arrayDepositos)
-
     return ingresoDinero;
 }
-console.groupEnd();
+console.groupEnd()
 
 //FIXME:  recuperar dato!
 
