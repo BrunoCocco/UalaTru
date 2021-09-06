@@ -7,7 +7,7 @@
 console.group("storage")
 
 function chequeoDato(){
-    let dato = localStorage.getItem("ingresoKEY")
+    let dato = parseInt(localStorage.getItem("ingresoKEY"))
     if(dato != undefined){
         document.getElementById("saldoActual").innerHTML = `<div> 
         <h2 style="color:green;">$ ${dato}</h2>
@@ -18,6 +18,8 @@ function chequeoDato(){
 }
 chequeoDato()
 
+
+
 console.groupEnd();
 
 
@@ -26,9 +28,9 @@ console.groupEnd();
 
 console.group("deposito")
 
-const depositos = [];
+const arrayDepositos = [];
 
-function recuperarDato(){
+function deposito(){
     let ingresoDinero = document.getElementById("depositar").value
     
     if (ingresoDinero < 1 || ingresoDinero > 10000) {
@@ -38,7 +40,7 @@ function recuperarDato(){
         <h2 style="color:green;">$ ${ingresoDinero}</h2>
         </div>`
         
-        depositos.push(ingresoDinero)
+        arrayDepositos.push(ingresoDinero)
         
         document.getElementById("print").innerHTML = `Depositaste ${ingresoDinero}`
         // ingreso datos al local storage
@@ -51,20 +53,17 @@ function recuperarDato(){
         const fecha = Date()
         console.log(fecha)
         
-        // TODO: """ let acumulado = depositos + ingresoDinero
-        // console.log(acumulado)
     }
-    
-    console.log(ingresoDinero)
 
-    console.log(depositos)
-    
+    console.log(arrayDepositos)
+
     return ingresoDinero;
 }
-
 console.groupEnd();
 
-//FIXME:  fecha en formato UNIX
+//FIXME:  recuperar dato!
+
+
 
 
 
