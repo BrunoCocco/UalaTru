@@ -60,8 +60,9 @@ const retiro = () =>{
         </div>`
     localStorage.setItem("ingresoKEY", montoRetirado)
     }
-    $("#print").append (`<div style="color:red;">Retiraste ${parseInt(document.getElementById("retiro").value)}</div> <br>`)
     
+    $("#print").append (`<div style="color:red;">Retiraste ${parseInt(document.getElementById("retiro").value)}</div> <br>`)
+
     console.log(montoRetirado)
 }
 
