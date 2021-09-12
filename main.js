@@ -2,12 +2,12 @@
 
 //-**************************-//
 
-//FIXME: funcion que observe si hay guardad0 algo en local storag y en base a eso defina el monto inicial de la app => 0 por default
-//
+//FIXME: funcion que observe si hay guardado algo en local storag y en base a eso defina el monto inicial de la app => 0 por default
+// chequea el storage para previsualizacion.
 console.group("storage")
 
-function chequeoDato(){
-    let dato = parseInt(localStorage.getItem("ingresoKEY"))
+const chequeoDato = () => {
+    var dato = parseInt(localStorage.getItem("ingresoKEY"))
     if(dato != undefined){
         document.getElementById("saldoActual").innerHTML = `<div> 
         <h2 style="color:green;">$ ${dato}</h2>
@@ -18,11 +18,19 @@ function chequeoDato(){
 }
 chequeoDato()
 
-
-
 console.groupEnd()
 
 
+
+//FIXME:  recuperar dato!
+// recupera nuevo dato del storage
+const acumulador = () => {
+    let dato = parseInt(localStorage.getItem("ingresoKEY"))
+    console.log(dato)
+    let nuevodato = dato + document.getElementById("depositar").value       
+
+    console.log(nuevodato)
+}
 
 //FIXME: funcion depositar y mostar en pantalla
 
@@ -30,7 +38,7 @@ console.group("deposito")
 
 const arrayDepositos = [];
 
-function deposito(){
+const deposito = () => {
     let ingresoDinero = document.getElementById("depositar").value
     
     if (ingresoDinero < 1 || ingresoDinero > 10000) {
@@ -52,21 +60,22 @@ function deposito(){
         // FECHAS!
         console.group("fecha y hora")
 
-        const fechaUnix = Date.now()
-        console.log(fechaUnix)
-        const fecha = Date()
-        console.log(fecha)
-
+        const nuevoIngreso = {
+            fecha : Date(),
+            monto : ingresoDinero
+        }
+        console.log(nuevoIngreso)
+        
         console.groupEnd()
     }
     return ingresoDinero;
 }
-deposito(chequeoDato());
+deposito(acumulador());
+
 console.groupEnd()
 
-//FIXME:  recuperar dato!
 
-
+//TODO: Retiro de dinero
 
 
 
