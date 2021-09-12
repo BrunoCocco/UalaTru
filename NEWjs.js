@@ -39,7 +39,7 @@ const depositar = () => {
     
     acumuladorDepositos.push(parseInt(document.getElementById("depositar").value))
     
-    $("#print").append (`<div>Depositaste ${parseInt(document.getElementById("depositar").value)}</div> <br>`)
+    $("#print").append (`<div style="color:green;">Depositaste ${parseInt(document.getElementById("depositar").value)}</div> <br>`)
     
     console.log(newDeposito)
     console.log(acumuladorDepositos)
@@ -60,6 +60,8 @@ const retiro = () =>{
         </div>`
     localStorage.setItem("ingresoKEY", montoRetirado)
     }
+    $("#print").append (`<div style="color:red;">Retiraste ${parseInt(document.getElementById("retiro").value)}</div> <br>`)
+    
     console.log(montoRetirado)
 }
 
