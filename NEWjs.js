@@ -11,9 +11,9 @@ const init = () => {
     let initStorageNumber = localStorage.getItem("")
     if( initStorageNumber == null){
         localStorage.setItem("ingresoKEY", 0)
-    document.getElementById("saldoActual").innerHTML = `<div> 
+    $("#saldoActual").append( `<div> 
     <h2 style="color:green;">$0</h2>
-        </div>`
+        </div>`)
         console.log(initStorageNumber)
         console.log(localStorage)
     }
@@ -35,9 +35,10 @@ const depositar = () => {
     
     newDeposito += parseInt(document.getElementById("depositar").value)
     
-    document.getElementById("saldoActual").innerHTML = `<div> 
+    $("#saldoActual").append( `<div> 
         <h2 style="color:green;">$ ${newDeposito}</h2>
         </div>`
+        )
     localStorage.setItem("ingresoKEY", newDeposito)
     
     acumuladorDepositos.push(parseInt(document.getElementById("depositar").value))
