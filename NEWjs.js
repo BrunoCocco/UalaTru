@@ -2,10 +2,12 @@
 //TODO: login : generar un logion de usuario
 //TODO: se inicializa storage en cero, pero no se logra que recuerde el monto enterior
 
+
 //FIXME: rever el condicional, algo esta mal ahi.
 
-
-
+/**
+ *  @param {init} // setea el local storage
+ */
 const init = () => {
 
     let initStorageNumber = localStorage.getItem("")
@@ -24,7 +26,7 @@ let acumuladorDepositos = [];
 
 
 /**
- *  @param {depositar} // ingreso de dinero desde el onclick
+ *  @param {depositar} // ingreso de dinero desde el onclick. y setea el localstorage
  */
 
 
@@ -42,7 +44,7 @@ const depositar = () => {
     
     acumuladorDepositos.push(parseInt(document.getElementById("depositar").value))
     
-    $("#print").append (`<div style="color:green;">Depositaste ${parseInt(document.getElementById("depositar").value)} el ${Date()}</div> <br>`)
+    $("#print").append (`<div style="color:green;">Depositaste ${parseInt(document.getElementById("depositar").value)}</div><br> <div><p> ${Date()} </p></div> <br>`)
 
     console.log(newDeposito)
     console.log(acumuladorDepositos)
@@ -50,7 +52,9 @@ const depositar = () => {
 
 
 //TODO: fucion retirar
-
+/**
+ *  @param {retiro} // retira dinero y setea nuevo numero en el localstorage.
+ */
 const retiro = () =>{
     
     let montoRetirado = localStorage.getItem("ingresoKEY", Number)
@@ -64,7 +68,7 @@ const retiro = () =>{
     
         localStorage.setItem("ingresoKEY", montoRetirado)
     }
-    $("#print").append (`<div style="color:red;">Retiraste ${parseInt(document.getElementById("retiro").value)} el ${Date()}</div></div> <br>`)
+    $("#print").append (`<div style="color:red;">Retiraste ${parseInt(document.getElementById("retiro").value)}</div><br> <div><p> ${Date()} </p></div> <br>`)
 
     console.log(montoRetirado)
 }
