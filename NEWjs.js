@@ -1,17 +1,19 @@
 
-//TODO: login : generar un logion de usuario
+//FIXME: login : generar un logion de usuario
+
 //TODO: se inicializa storage en cero, pero no se logra que recuerde el monto enterior
 const iniciarSesion = () =>{
     let usuario = document.getElementById("ingresar").value
     console.log(usuario)
     document.getElementById("header").innerHTML = `
     <div class="row mt-3">
-        <h3 class=" header__h3--bienvenidos col-11 pt-1">Bienvenidos a UalaTru: " ${usuario} "</h3>
+        <h3 class=" header__h3--bienvenidos col-11 pt-1">Bienvenidos a UalaTru " ${usuario} "</h3>
         <button class="btn-close col-1 pt-2" onclick="cerrarSesion()"></button>
     </div>
     `
     localStorage.setItem("NewUser", usuario)
 }
+// FIXME: Cerrar session
 
 const cerrarSesion = () =>{
     let usuario = document.getElementById("ingresar").value
@@ -28,22 +30,23 @@ const cerrarSesion = () =>{
 
 
 
-
-//FIXME: rever el condicional, algo esta mal ahi.
+//FIXME: funciona!!.
 
 /**
  *  @param {init} // setea el local storage
  */
 const init = () => {
-
-    let initStorageNumber = localStorage.getItem("")
-    if( initStorageNumber == null){
+    if(  localStorage.getItem("ingresoKEY") == null){
         localStorage.setItem("ingresoKEY", 0)
     $("#saldoActual").append ( `<div> 
-    <h2>$ - - </h2>
+    <h2>$ ${localStorage.getItem("ingresoKEY")} </h2>
         </div>`)
-        console.log(initStorageNumber)
         console.log(localStorage)
+    }
+    else{
+        $("#saldoActual").append ( `<div> 
+    <h2>$ ${localStorage.getItem("ingresoKEY")} </h2>
+        </div>`)
     }
 }
     init()
