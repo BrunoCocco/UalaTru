@@ -18,11 +18,10 @@
 </head>
 
 <body>
-    <header class="container">
+    <header class="container " id="header">
         <div class="row mt-3">
-            <div class="col-12">
-                <h3>Bienvenidos a UalaTru</h3>
-            </div>
+            <h3 class="header__h3--bienvenidos col-9 pt-1">Bienvenidos a UalaTru</h3>
+            <button class="btn btn-primary col-3" data-bs-toggle="modal"  data-bs-target="#ingreso">ingresar</button>
         </div>
     </header>
     <!-- saldo actual -->
@@ -85,7 +84,22 @@
         </div>
     </div>
 
-
+    <!-- TODO: modal ingreso -->
+    <div class="modal fade" id="ingreso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Ingrese nombre de Usuario.</h3>
+                    <input type="text" id="ingresar" placeholder="@user" >
+                    <button onclick="iniciarSesion()" class="btn btn-primary" data-bs-dismiss="modal" >ingresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"

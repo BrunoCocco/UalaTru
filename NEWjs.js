@@ -1,6 +1,32 @@
 
 //TODO: login : generar un logion de usuario
 //TODO: se inicializa storage en cero, pero no se logra que recuerde el monto enterior
+const iniciarSesion = () =>{
+    let usuario = document.getElementById("ingresar").value
+    console.log(usuario)
+    document.getElementById("header").innerHTML = `
+    <div class="row mt-3">
+        <h3 class=" header__h3--bienvenidos col-11 pt-1">Bienvenidos a UalaTru: " ${usuario} "</h3>
+        <button class="btn-close col-1 pt-2" onclick="cerrarSesion()"></button>
+    </div>
+    `
+    localStorage.setItem("NewUser", usuario)
+}
+
+const cerrarSesion = () =>{
+    let usuario = document.getElementById("ingresar").value
+    console.log(usuario)
+    document.getElementById("header").innerHTML = `
+    <div class="row mt-3">
+        <h3 class="header__h3--bienvenidos col-9 pt-1">Bienvenidos a UalaTru</h3>
+        <button class="btn btn-primary col-3" data-bs-toggle="modal"  data-bs-target="#ingreso">ingresar</button>
+    </div>
+    `
+}
+
+
+
+
 
 
 //FIXME: rever el condicional, algo esta mal ahi.
@@ -14,7 +40,7 @@ const init = () => {
     if( initStorageNumber == null){
         localStorage.setItem("ingresoKEY", 0)
     $("#saldoActual").append ( `<div> 
-    <h2 style="color:green;">$0</h2>
+    <h2>$ - - </h2>
         </div>`)
         console.log(initStorageNumber)
         console.log(localStorage)
@@ -38,7 +64,7 @@ const depositar = () => {
     newDeposito += parseInt(document.getElementById("depositar").value)
     
     document.getElementById("saldoActual").innerHTML = `<div> 
-        <h2 style="color:green;">$ ${newDeposito}</h2>
+        <h2 style="color:blue;">$ ${newDeposito}</h2>
         </div>`
     localStorage.setItem("ingresoKEY", newDeposito)
     
@@ -70,17 +96,24 @@ const retiro = () =>{
     
     let montoRetirado = localStorage.getItem("ingresoKEY", Number)
     
-    if(montoRetirado != undefined){
     montoRetirado -= document.getElementById("retiro").value
     
     document.getElementById("saldoActual").innerHTML = `<div> 
-        <h2 style="color:green;">$ ${montoRetirado}</h2>
+        <h2 style="color:blue;">$ ${montoRetirado}</h2>
         </div>`
     
         localStorage.setItem("ingresoKEY", montoRetirado)
-    }
-    $("#print").append (`<div style="color:red;">Retiraste ${parseInt(document.getElementById("retiro").value)}</div><br> <div><p> ${Date()} </p></div> <br>`)
-
+    
+    $("#print").append (`
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="print--retiro"> retiraste $${parseInt(document.getElementById("retiro").value)}</div>
+            <div>
+                <p class="print--date"> ${Date()} </p
+            </div>
+        </div>
+    </div>`)
+    
     console.log(montoRetirado)
 }
 
