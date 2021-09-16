@@ -7,7 +7,7 @@ const iniciarSesion = () =>{
     console.log(usuario)
     document.getElementById("header").innerHTML = `
     <div class="row mt-3">
-        <h3 class=" header__h3--bienvenidos col-11 pt-1">Bienvenidos a UalaTru " ${usuario} "</h3>
+        <h3 class=" header__h3--bienvenidos col-11 pt-1">Bienvenidos a UalaTru <spam class="spam__Dato"> ${usuario}</spam> </h3>
         <button class="btn-close col-1 pt-2" onclick="cerrarSesion()"></button>
     </div>
     `
@@ -33,8 +33,9 @@ const cerrarSesion = () =>{
 //FIXME: funciona!!.
 
 /**
- *  @param {init} // setea el local storage
- */
+ *  @param {init} // consulta y setea el local storage.
+*/
+
 const init = () => {
     if(  localStorage.getItem("ingresoKEY") == null){
         localStorage.setItem("ingresoKEY", 0)
@@ -54,14 +55,15 @@ const init = () => {
 let acumuladorDepositos = [];
 
 
+
 /**
  *  @param {depositar} // ingreso de dinero desde el onclick. y setea el localstorage
  */
 
-
 //TODO: funcion depositar
 
 const depositar = () => {
+    if(parseInt(document.getElementById("depositar").value) > 0 && parseInt(document.getElementById("depositar").value) <= 10000 ){
     let newDeposito = JSON.parse(localStorage.getItem("ingresoKEY", Number))
     
     newDeposito += parseInt(document.getElementById("depositar").value)
@@ -82,30 +84,29 @@ const depositar = () => {
             </div>
         </div>
     </div>`)
-
-    
-
-
     console.log(newDeposito)
+    }
+    else{
+        console.log("operacion de deposito invalida")
+    } 
     console.log(acumuladorDepositos)
 }
 
-
-//TODO: fucion retirar
 /**
- *  @param {retiro} // retira dinero y setea nuevo numero en el localstorage.
+ *  @param {retiro} // retira dinero y setea nuevo parametro en el localstorage.
  */
+
 const retiro = () =>{
+    let monto = localStorage.getItem("ingresoKEY", Number)
+    if(monto > 0 && parseInt(document.getElementById("retiro").value) <= monto ){
     
-    let montoRetirado = localStorage.getItem("ingresoKEY", Number)
-    
-    montoRetirado -= document.getElementById("retiro").value
+        monto -= document.getElementById("retiro").value
     
     document.getElementById("saldoActual").innerHTML = `<div> 
-        <h2 style="color:blue;">$ ${montoRetirado}</h2>
+        <h2 style="color:blue;">$ ${monto}</h2>
         </div>`
     
-        localStorage.setItem("ingresoKEY", montoRetirado)
+        localStorage.setItem("ingresoKEY", monto)
     
     $("#print").append (`
     <div class="row mt-3">
@@ -116,8 +117,12 @@ const retiro = () =>{
             </div>
         </div>
     </div>`)
+    console.log(monto)
+    }
+    else{
+        console.log("operacion de retiro invalida")
+    }
     
-    console.log(montoRetirado)
 }
 
 

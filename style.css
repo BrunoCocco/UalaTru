@@ -13,3 +13,7 @@
 .header__h3--bienvenidos{
     font-size: 20px;
 }
+.spam__Dato{
+    text-transform: uppercase;
+    color: blue;
+}
