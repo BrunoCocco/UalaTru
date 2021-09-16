@@ -44,7 +44,18 @@ const depositar = () => {
     
     acumuladorDepositos.push(parseInt(document.getElementById("depositar").value))
     
-    $("#print").append (`<div style="color:green;">Depositaste ${parseInt(document.getElementById("depositar").value)}</div><br> <div><p> ${Date()} </p></div> <br>`)
+    $("#print").append (`
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="print--deposito"> Depositaste $${parseInt(document.getElementById("depositar").value)}</div>
+            <div>
+                <p class="print--date"> ${Date()} </p
+            </div>
+        </div>
+    </div>`)
+
+    
+
 
     console.log(newDeposito)
     console.log(acumuladorDepositos)
