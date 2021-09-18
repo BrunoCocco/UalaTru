@@ -13,8 +13,10 @@ const iniciarSesion = () =>{
     `
     localStorage.setItem("NewUser", usuario)
 }
-// FIXME: Cerrar session
 
+
+// FIXME: Cerrar session
+//TODO: mejorar la entrada.
 const cerrarSesion = () =>{
     let usuario = document.getElementById("ingresar").value
     console.log(usuario)
@@ -31,7 +33,7 @@ const cerrarSesion = () =>{
 
 
 //FIXME: funciona!!.
-
+//TODO: que mire si la session esta iniciada en local storage, y que te muestre el nombre directo
 /**
  *  @param {init} // consulta y setea el local storage.
 */
@@ -46,14 +48,13 @@ const init = () => {
     }
     else{
         $("#saldoActual").append ( `<div> 
-    <h2>$ ${localStorage.getItem("ingresoKEY")} </h2>
+    <h2 style="color: blue;">$ ${localStorage.getItem("ingresoKEY")} </h2>
         </div>`)
     }
 }
     init()
 
 let acumuladorDepositos = [];
-
 
 
 /**
@@ -94,9 +95,13 @@ const depositar = () => {
 
 /**
  *  @param {retiro} // retira dinero y setea nuevo parametro en el localstorage.
- */
+*/
 
-const retiro = () =>{
+//TODO: hacer que guarde en el array el monto que ingresa el usuario , no la diferencia! gilastum
+
+let difRetiros = [];
+
+const retiro = () => {
     let monto = localStorage.getItem("ingresoKEY", Number)
     if(monto > 0 && parseInt(document.getElementById("retiro").value) <= monto ){
     
@@ -118,6 +123,8 @@ const retiro = () =>{
         </div>
     </div>`)
     console.log(monto)
+    difRetiros.push(monto)
+    console.log(difRetiros)
     }
     else{
         console.log("operacion de retiro invalida")
