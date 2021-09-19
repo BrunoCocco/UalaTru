@@ -1,6 +1,5 @@
 //FIXME: login : generar un logion de usuario
 
-//TODO: se inicializa storage en cero, pero no se logra que recuerde el monto enterior
 const iniciarSesion = () =>{
     let usuario = document.getElementById("ingresar").value
     console.log(usuario)
@@ -15,10 +14,8 @@ const iniciarSesion = () =>{
 
 
 // FIXME: Cerrar session
-//TODO: mejorar la entrada.
 const cerrarSesion = () =>{
     let usuario = document.getElementById("ingresar").value
-    console.log(usuario)
     document.getElementById("header").innerHTML = `
     <div class="row mt-3">
         <h3 class="header__h3--bienvenidos col-9 pt-1">Bienvenidos a UalaTru</h3>
@@ -26,14 +23,6 @@ const cerrarSesion = () =>{
     </div>
     `
 }
-
-
-
-
-
-//FIXME: funciona!!.
-
-
 
 
 // FIXME: Funcion init, chequea local y baja info a la app
@@ -108,4 +97,78 @@ const depositar = (monto,fecha) => {
 }
 
 
-// funcion Retirar Dinero
+//TODO: funcion Retirar Dinero
+class Retiros {
+    constructor (retiro,fecha){
+        this.retiro = retiro,
+        this.fecha = fecha
+    }
+}
+
+let difRetiros = [];
+
+const retiro = (retiro,fecha) => {
+new Retiros(retiro,fecha)
+
+this.retiro = parseInt(document.getElementById("retiro").value)
+this.fecha = Date()
+
+let monto = localStorage.getItem("ingresoKEY", Number)
+
+if(monto > 0 && this.retiro <= monto ){
+    nuevoNumero = monto - this.retiro
+    
+    document.getElementById("saldoActual").innerHTML = `<div> 
+        <h2 style="color:blue;">$ ${nuevoNumero}</h2>
+        </div>`
+    
+        localStorage.setItem("ingresoKEY", nuevoNumero)
+    
+    $("#print").append (`
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="print--retiro"> retiraste $${this.retiro}</div>
+            <div>
+                <p class="print--date"> ${this.fecha} </p
+            </div>
+        </div>
+    </div>`)
+
+    difRetiros.push(monto)
+
+    console.log(difRetiros)
+
+}
+
+
+}
+    // let monto = localStorage.getItem("ingresoKEY", Number)
+    // if(monto > 0 && parseInt(document.getElementById("retiro").value) <= monto ){
+    
+    //     monto -= document.getElementById("retiro").value
+    
+    // document.getElementById("saldoActual").innerHTML = `<div> 
+    //     <h2 style="color:blue;">$ ${monto}</h2>
+    //     </div>`
+    
+    //     localStorage.setItem("ingresoKEY", monto)
+    
+    // $("#print").append (`
+    // <div class="row mt-3">
+    //     <div class="col-12">
+    //         <div class="print--retiro"> retiraste $${parseInt(document.getElementById("retiro").value)}</div>
+    //         <div>
+    //             <p class="print--date"> ${Date()} </p
+    //         </div>
+    //     </div>
+    // </div>`)
+
+    // difRetiros.push(monto)
+
+    // console.log(difRetiros)
+    
+    // }
+    // else{
+    //     console.log("operacion de retiro invalida")
+    // }
+    
