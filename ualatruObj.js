@@ -107,7 +107,7 @@ class Retiros {
 
 let difRetiros = [];
 
-const retiro = (retiro,fecha) => {
+const retirar = (retiro,fecha) => {
 new Retiros(retiro,fecha)
 
 this.retiro = parseInt(document.getElementById("retiro").value)
@@ -134,41 +134,11 @@ if(monto > 0 && this.retiro <= monto ){
         </div>
     </div>`)
 
-    difRetiros.push(monto)
-
+    difRetiros.push(this.retiro)
     console.log(difRetiros)
-
+}
+else{
+        console.log("operacion de retiro invalida")
+    }
 }
 
-
-}
-    // let monto = localStorage.getItem("ingresoKEY", Number)
-    // if(monto > 0 && parseInt(document.getElementById("retiro").value) <= monto ){
-    
-    //     monto -= document.getElementById("retiro").value
-    
-    // document.getElementById("saldoActual").innerHTML = `<div> 
-    //     <h2 style="color:blue;">$ ${monto}</h2>
-    //     </div>`
-    
-    //     localStorage.setItem("ingresoKEY", monto)
-    
-    // $("#print").append (`
-    // <div class="row mt-3">
-    //     <div class="col-12">
-    //         <div class="print--retiro"> retiraste $${parseInt(document.getElementById("retiro").value)}</div>
-    //         <div>
-    //             <p class="print--date"> ${Date()} </p
-    //         </div>
-    //     </div>
-    // </div>`)
-
-    // difRetiros.push(monto)
-
-    // console.log(difRetiros)
-    
-    // }
-    // else{
-    //     console.log("operacion de retiro invalida")
-    // }
-    
