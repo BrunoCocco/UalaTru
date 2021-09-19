@@ -33,6 +33,10 @@ const cerrarSesion = () =>{
 
 
 //FIXME: funciona!!.
+
+
+//TODO:
+//TODO:
 //TODO: que mire si la session esta iniciada en local storage, y que te muestre el nombre directo
 /**
  *  @param {init} // consulta y setea el local storage.
@@ -122,9 +126,11 @@ const retiro = () => {
             </div>
         </div>
     </div>`)
-    console.log(monto)
+
     difRetiros.push(monto)
+
     console.log(difRetiros)
+    
     }
     else{
         console.log("operacion de retiro invalida")
