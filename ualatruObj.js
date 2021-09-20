@@ -12,7 +12,6 @@ const iniciarSesion = () =>{
     localStorage.setItem("NewUser", usuario)
 }
 
-
 // FIXME: Cerrar session
 const cerrarSesion = () =>{
     let usuario = document.getElementById("ingresar").value
