@@ -22,12 +22,15 @@ const cerrarSesion = () =>{
         <button class="btn btn-primary col-3" data-bs-toggle="modal"  data-bs-target="#ingreso">ingresar</button>
     </div>
     `
+    console.log(usuario)
 }
 
 
 // FIXME: Funcion init, chequea local y baja info a la app
 
 const init = () => {
+    let usuario = localStorage.getItem("NewUser");
+    
     if(localStorage.getItem("ingresoKEY") == null){
         localStorage.setItem("ingresoKEY", 0)
     $("#saldoActual").append ( `<div> 
@@ -39,6 +42,22 @@ const init = () => {
         $("#saldoActual").append ( `<div> 
     <h2 style="color: blue;">$ ${localStorage.getItem("ingresoKEY")} </h2>
         </div>`)
+    }
+    if(usuario == null){
+        document.getElementById("header").innerHTML = `
+    <div class="row mt-3">
+        <h3 class="header__h3--bienvenidos col-9 pt-1">Bienvenidos a UalaTru</h3>
+        <button class="btn btn-primary col-3" data-bs-toggle="modal"  data-bs-target="#ingreso">ingresar</button>
+    </div>
+    `
+    }
+    else{
+        document.getElementById("header").innerHTML = `
+    <div class="row mt-3">
+        <h3 class=" header__h3--bienvenidos col-11 pt-1">Bienvenidos a UalaTru <spam class="spam__Dato"> ${usuario}</spam> </h3>
+        <button class="btn-close col-1 pt-2" onclick="cerrarSesion()"></button>
+    </div>
+    `
     }
 }
 init()
@@ -141,4 +160,3 @@ else{
         console.log("operacion de retiro invalida")
     }
 }
-
