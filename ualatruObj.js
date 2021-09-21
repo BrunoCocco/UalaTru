@@ -163,9 +163,11 @@ else{
 
 // TODO: borrar historial
 const historial = () =>{
-    $("#print").fadeOut();
+    $("#print").fadeOut()
+    console.log("oculto")
 }
 
 const historialmuestra = () =>{
-    $("#print").fadeIn();
+    $("#print").fadeIn()
+    console.log("visible")
 }
