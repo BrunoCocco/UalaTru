@@ -143,7 +143,7 @@ if(monto > 0 && this.retiro <= monto ){
         localStorage.setItem("ingresoKEY", nuevoNumero)
     
     $("#print").append (`
-    <div class="row mt-3">
+    <div class="row mt-3">   
         <div class="col-12">
             <div class="print--retiro"> retiraste $${this.retiro}</div>
             <div>
@@ -158,4 +158,14 @@ if(monto > 0 && this.retiro <= monto ){
 else{
         console.log("operacion de retiro invalida")
     }
+}
+
+
+// TODO: borrar historial
+const historial = () =>{
+    $("#print").fadeOut();
+}
+
+const historialmuestra = () =>{
+    $("#print").fadeIn();
 }
