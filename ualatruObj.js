@@ -1,4 +1,4 @@
-//FIXME: login : generar un logion de usuario
+//FIXME: login : funciona muy basico pero es independiente del monto que guarda el usuario
 
 const iniciarSesion = () =>{
     let usuario = document.getElementById("ingresar").value
@@ -12,7 +12,7 @@ const iniciarSesion = () =>{
     localStorage.setItem("NewUser", usuario)
 }
 
-// FIXME: Cerrar session
+// FIXME: Ok funciona
 const cerrarSesion = () =>{
     let usuario = document.getElementById("ingresar").value
     document.getElementById("header").innerHTML = `
@@ -62,7 +62,7 @@ const init = () => {
 init()
 
 
-// TODO: instancia constructora del nuevo deposito. 
+// FIXME: instancia constructora del nuevo deposito. 
 
 
 class deposito{
@@ -72,7 +72,6 @@ class deposito{
     }
 }
 
-//FIXME: array acumulador
 let acumuladorDepositos = [];
 
 //FIXME: Nuevo deposito
@@ -161,12 +160,12 @@ else{
 }
 
 
-// TODO: borrar historial
+// OK borrar historial
 const historial = () =>{
     $("#print").fadeOut()
     console.log("oculto")
 }
-
+// OK mostrar historial
 const historialmuestra = () =>{
     $("#print").fadeIn()
     console.log("visible")
