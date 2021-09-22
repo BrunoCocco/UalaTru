@@ -12,7 +12,7 @@ const iniciarSesion = () =>{
     localStorage.setItem("NewUser", usuario)
 }
 
-// FIXME: Ok funciona
+// Ok funciona
 const cerrarSesion = () =>{
     let usuario = document.getElementById("ingresar").value
     document.getElementById("header").innerHTML = `
@@ -25,7 +25,7 @@ const cerrarSesion = () =>{
 }
 
 
-// FIXME: Funcion init, chequea local y baja info a la app
+// Funcion init, chequea local y baja info a la app
 
 const init = () => {
     let usuario = localStorage.getItem("NewUser");
