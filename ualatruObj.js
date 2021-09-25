@@ -25,7 +25,7 @@ const cerrarSesion = () =>{
 }
 
 
-// Funcion init, chequea local y baja info a la app
+// Funcion init, chequea local y baja info 
 
 const init = () => {
     let usuario = localStorage.getItem("NewUser");
@@ -106,11 +106,16 @@ const depositar = (monto,fecha) => {
             </div>
         </div>
     </div>`)
+    Swal.fire(
+        'DEPOSITO APROBADO!',
+        `monto ingresado: $${this.monto}`,
+        'success'
+    )
     }
     else{
-        console.log("gilastrun")
+        console.log("deposito incorrecto")
+        Swal.fire('monto ingresado incorrecto')
     }
-    console.log(acumuladorDepositos)
 }
 
 
@@ -153,9 +158,15 @@ if(monto > 0 && this.retiro <= monto ){
 
     difRetiros.push(this.retiro)
     console.log(difRetiros)
+    Swal.fire(
+        'Retiro APROBADO!',
+        `monto retirado: $${this.retiro}`,
+        'success'
+    )
 }
 else{
         console.log("operacion de retiro invalida")
+        Swal.fire('Monto Invalido')
     }
 }
 
