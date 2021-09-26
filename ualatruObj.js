@@ -171,12 +171,12 @@ else{
 }
 
 
-// OK borrar historial
+// OK: borrar historial
 const historial = () =>{
     $("#print").fadeOut()
     console.log("oculto")
 }
-// OK mostrar historial
+// OK: mostrar historial
 const historialmuestra = () =>{
     $("#print").fadeIn()
     console.log("visible")
